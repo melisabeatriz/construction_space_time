@@ -187,9 +187,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -197,9 +197,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -208,9 +208,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -260,8 +260,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -271,8 +271,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -280,7 +280,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -290,7 +290,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -340,7 +340,6 @@ template {
 ul {
   margin: 0;
 }
-
 
 div {
   padding: 0;
@@ -409,8 +408,6 @@ body #painting {
   font-size: 14px;
   display: flex;
   flex-direction: column;
-  top: 100px;
-  left: 35%;
   padding: 15px;
   box-shadow: 0px 0px 60px 20px rgb(128, 41, 41);
   border-radius: 0 25px;
@@ -428,30 +425,35 @@ body #painting {
   align-self: flex-end;
 }
 
-.painting-info-2 {
-  background-color: #daa0aa;
-  font-family: "Kode Mono", monospace;
-  width: 400px;
-  position: absolute;
-  z-index: 100;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
+.painting-info-1 {
   top: 100px;
-  padding: 15px;
-  box-shadow: 0px 0px 60px 20px rgb(128, 41, 41);
-  border-radius: 0 25px;
+  left: 35%;
+}
+
+.painting-info-2 {
+  top: 150px;
+}
+
+.overlay {
+  z-index: 0;
   opacity: 0;
-  transform: scale(0.8);
-  transition: all 1s;
+  transition: all 0.5s;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  transform: scale(3);
 }
-.painting-info-2 .title {
-  font-size: 20px;
-  font-weight: 700;
+
+.hue-filter-1 {
+  backdrop-filter: hue-rotate(215deg);
 }
-.painting-info-2 img {
-  width: 50%;
-  align-self: flex-end;
+
+.hue-filter-2 {
+  backdrop-filter: invert(0.8);
+}
+
+.blur-filter {
+  backdrop-filter: blur(1px);
 }
 
 @keyframes opacity {
@@ -531,6 +533,9 @@ body #painting {
   transform-origin: top;
 }
 
+#wall-3:hover {
+  z-index: 55;
+}
 #wall-3:hover .top,
 #wall-3:hover .left,
 #wall-3:hover .right {
@@ -551,6 +556,15 @@ body #painting {
   z-index: 100;
 }
 
+#wall-3:hover ~ .overlay,
+#floor-3:hover ~ .overlay {
+  z-index: 50;
+  opacity: 0.7;
+}
+
+#floor-3:hover {
+  z-index: 60;
+}
 #floor-3:hover .top,
 #floor-3:hover .left,
 #floor-3:hover .right {
@@ -561,6 +575,7 @@ body #painting {
 
 #floor-3:hover + .painting-info-2 {
   opacity: 1;
+  transition: all 1s;
   z-index: 100;
 }
 
@@ -644,14 +659,14 @@ body #painting {
 }
 #floor-2 .contain .left {
   background-color: #0e0e75;
-  width: 100%;
+  width: 100.1%;
   height: 5%;
   margin-left: 2%;
   transform: skew(47deg, 0deg);
 }
 #floor-2 .right {
   background-color: #272797;
-  margin-top: 2%;
+  margin-top: 1.8%;
   width: 4%;
   height: 95%;
   transform: skew(0deg, 43deg);
@@ -691,10 +706,11 @@ body #painting {
 }
 #wall-1 .contain .top {
   background-color: #f1f1f1;
-  height: 7%;
-  width: 100%;
+  height: 8%;
+  width: 100.5%;
   transform: skew(30deg, 0deg);
-  margin-left: -3%;
+  margin-left: -4%;
+  margin-top: -2%;
 }
 #wall-1 .contain .right {
   background-color: #e6e6e6;
@@ -703,7 +719,7 @@ body #painting {
 }
 #wall-1 .left {
   background-color: #d6d6d6;
-  height: 94%;
+  height: 93%;
   width: 7%;
   margin-top: 4%;
   transform: skew(0deg, 60deg);
@@ -772,9 +788,9 @@ body #painting {
 }
 #roof-1 .right {
   background-color: #e6e6e6;
-  width: 5%;
-  height: 89%;
-  transform: skew(0deg, 43deg) translate(0px, 2px);
+  width: 6%;
+  height: 87%;
+  transform: skew(0deg, 43deg) translate(0px, 3px);
 }
 
 #mini-wall-1 {
@@ -796,9 +812,9 @@ body #painting {
 #mini-wall-1 .contain .top {
   background-color: #f1f1f1;
   height: 40%;
-  width: 97%;
+  width: 97.5%;
   transform: skew(-27deg, 0deg);
-  margin-left: 8%;
+  margin-left: 7%;
 }
 #mini-wall-1 .contain .left {
   background-color: #d6d6d6;
@@ -807,10 +823,10 @@ body #painting {
 }
 #mini-wall-1 .right {
   background-color: #e6e6e6;
-  width: 12%;
-  height: 63%;
+  width: 12.5%;
+  height: 62%;
   transform: skew(0deg, -63deg);
-  margin-top: 11%;
+  margin-top: 11.2%;
   margin-left: -2%;
 }
 
@@ -863,7 +879,7 @@ body #painting {
   position: absolute;
   top: 62%;
   left: 14%;
-  z-index: 50;
+  z-index: 40;
   transform: rotateZ(47deg);
   display: flex;
   animation: roof2 2s;
@@ -917,13 +933,13 @@ body #painting {
   background-color: #d6d6d6;
   width: 100%;
   height: 11%;
-  margin-left: 4%;
+  margin-left: 5%;
   transform: skew(47deg, 0deg);
 }
 #roof-3 .right {
   background-color: #e6e6e6;
   width: 10%;
-  height: 90%;
+  height: 89%;
   margin-top: 5%;
   transform: skew(0deg, 43deg);
 }
@@ -1017,7 +1033,7 @@ body #painting {
 #prism-1 .contain .top {
   background-color: #464646;
   height: 67%;
-  width: 102%;
+  width: 99%;
   transform: skew(26deg, 0deg);
   margin-left: -31%;
 }
@@ -1029,8 +1045,8 @@ body #painting {
 #prism-1 .left {
   background-color: #292929;
   height: 59%;
-  width: 58%;
-  margin-top: 39%;
+  width: 56%;
+  margin-top: 38%;
   transform: skew(0deg, 64deg);
 }
 
@@ -1060,8 +1076,9 @@ body #painting {
 }
 #floor-3 .contain .top {
   background-color: #f0de3e;
-  width: 98%;
-  height: 96%;
+  width: 100%;
+  height: 91%;
+  margin-left: -2.5%;
 }
 #floor-3 .contain .left {
   background-color: #e4b827;
@@ -1073,8 +1090,8 @@ body #painting {
 #floor-3 .right {
   background-color: #ebc137;
   margin-left: -2.5%;
-  margin-top: 2%;
-  height: 92%;
+  margin-top: 4%;
+  height: 90%;
   width: 8%;
   transform: skew(0deg, 43deg);
 }
@@ -1099,8 +1116,8 @@ body #painting {
 #mini-wall-3 .contain .top {
   background-color: #bdbdbd;
   height: 25%;
-  width: 101.5%;
-  margin-left: -5%;
+  width: 99.5%;
+  margin-left: -4%;
   margin-top: -5%;
   transform: skew(27deg, 0deg);
 }
@@ -1134,10 +1151,11 @@ body #painting {
 }
 #mini-wall-4 .contain .top {
   background-color: #f1f1f1;
-  height: 20%;
-  width: 100%;
+  height: 23%;
+  width: 98%;
   transform: skew(-27deg, 0deg);
-  margin-left: 3%;
+  margin-left: 5%;
+  margin-top: -3%;
 }
 #mini-wall-4 .contain .left {
   background-color: #d6d6d6;
@@ -1149,8 +1167,8 @@ body #painting {
   width: 11%;
   height: 79%;
   transform: skew(0deg, -63deg);
-  margin-top: 10%;
-  margin-left: -3%;
+  margin-top: 9%;
+  margin-left: -2%;
 }
 
 #mini-wall-6 {
@@ -1173,10 +1191,10 @@ body #painting {
 }
 #mini-wall-6 .contain .top {
   background-color: #bdbdbd;
-  height: 40%;
-  width: 101.5%;
-  margin-left: -5%;
-  margin-top: -5%;
+  height: 50%;
+  width: 99.5%;
+  margin-left: -4.5%;
+  margin-top: -8%;
   transform: skew(27deg, 0deg);
 }
 #mini-wall-6 .contain .left {
@@ -1186,9 +1204,10 @@ body #painting {
 }
 #mini-wall-6 .right {
   background-color: #a7a7a7;
-  width: 7%;
-  height: 70%;
-  margin-top: 2%;
+  width: 8%;
+  height: 71%;
+  margin-top: 1%;
+  margin-left: 1%;
   transform: skew(0deg, 63deg);
 }
 
@@ -1197,8 +1216,8 @@ body #painting {
   width: 22%;
   height: 21%;
   position: absolute;
-  top: 22%;
-  left: 51%;
+  top: 14%;
+  left: 40%;
   z-index: 5;
   display: flex;
   flex-direction: row-reverse;
@@ -1211,10 +1230,11 @@ body #painting {
 }
 #mini-wall-7 .contain .top {
   background-color: #be3737;
-  height: 20%;
+  height: 21%;
   width: 103%;
   transform: skew(30deg, 0deg);
-  margin-left: -7%;
+  margin-left: -8%;
+  margin-top: -7%;
 }
 #mini-wall-7 .contain .right {
   background-color: #9e3232;
@@ -1224,9 +1244,9 @@ body #painting {
 }
 #mini-wall-7 .left {
   background-color: #802424;
-  height: 83%;
+  height: 86%;
   width: 15%;
-  margin-top: 9%;
+  margin-top: 5%;
   margin-left: 6%;
   transform: skew(0deg, 60deg);
 }
@@ -1258,11 +1278,11 @@ body #painting {
 #mini-wall-8 .contain .right {
   background-color: #272797;
   width: 103%;
-  height: 82%;
+  height: 78%;
 }
 #mini-wall-8 .left {
   background-color: #0e0e75;
-  height: 81%;
+  height: 78%;
   width: 18%;
   margin-top: 13%;
   margin-left: 6%;
@@ -1296,7 +1316,7 @@ body #painting {
 #mini-wall-9 .contain .right {
   background-color: #e6e6e6;
   width: 103%;
-  height: 100%;
+  height: 101%;
 }
 #mini-wall-9 .left {
   background-color: #d6d6d6;
@@ -1311,8 +1331,8 @@ body #painting {
   width: 11%;
   height: 41%;
   position: absolute;
-  top: 23%;
-  right: 21%;
+  top: 11%;
+  right: 23%;
   z-index: 4;
   display: flex;
 }
@@ -1396,9 +1416,9 @@ body #painting {
 #mini-wall-12 .contain .top {
   background-color: #f1f1f1;
   height: 20%;
-  width: 100%;
+  width: 97%;
   transform: skew(-27deg, 0deg);
-  margin-left: 3%;
+  margin-left: 6%;
 }
 #mini-wall-12 .contain .left {
   background-color: #d6d6d6;
@@ -1407,10 +1427,10 @@ body #painting {
 }
 #mini-wall-12 .right {
   background-color: #e6e6e6;
-  width: 14%;
+  width: 12%;
   height: 79%;
   transform: skew(0deg, -63deg);
-  margin-top: 10%;
+  margin-top: 9%;
   margin-left: -3%;
 }
 
@@ -1418,7 +1438,7 @@ body #painting {
   width: 19%;
   height: 19%;
   position: absolute;
-  top: 74%;
+  top: 79%;
   right: 0;
   transform: skew(0deg, -47deg);
   display: flex;
@@ -1432,22 +1452,24 @@ body #painting {
 }
 #prism-2 .contain .top {
   background-color: #464646;
-  height: 101%;
-  width: 102%;
+  height: 107%;
+  width: 104%;
   transform: skew(26deg, 0deg);
-  margin-left: -31%;
-  margin-top: -42%;
+  margin-left: -34%;
+  margin-top: -40%;
 }
 #prism-2 .contain .right {
   background-color: #141414;
-  width: 100%;
-  height: 96%;
+  width: 104%;
+  height: 97%;
+  margin-left: -7%;
 }
 #prism-2 .left {
   background-color: #292929;
   height: 59%;
   width: 53%;
   margin-top: 11%;
+  margin-right: 4%;
   transform: skew(0deg, 64deg);
 }
 
@@ -1477,20 +1499,21 @@ body #painting {
 }
 #prism-3 .contain .top {
   background-color: #464646;
-  height: 64%;
-  width: 100%;
+  height: 67%;
+  width: 102%;
   transform: skew(-26deg, 0deg);
-  margin-left: 23%;
+  margin-left: 24%;
+  margin-top: -4%;
 }
 #prism-3 .contain .right {
   background-color: #141414;
   width: 100%;
-  height: 96%;
+  height: 93%;
 }
 #prism-3 .left {
   background-color: #292929;
-  height: 63%;
-  width: 42%;
+  height: 60%;
+  width: 43%;
   margin-top: 30%;
   transform: skew(0deg, -64deg);
 }
@@ -1514,8 +1537,9 @@ body #painting {
 #mini-wall-13 .contain .top {
   background-color: #f0de3e;
   height: 30%;
-  width: 100%;
+  width: 101%;
   transform: skew(-27deg, 0deg);
+  margin-left: 4%;
 }
 #mini-wall-13 .contain .left {
   background-color: #e4b827;
@@ -1525,7 +1549,8 @@ body #painting {
 #mini-wall-13 .right {
   background-color: #ebc137;
   width: 7%;
-  height: 78%;
+  height: 68%;
+  margin-top: 7%;
   transform: skew(0deg, -63deg);
 }
 
