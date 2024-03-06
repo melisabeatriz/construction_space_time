@@ -19,6 +19,7 @@ html {
  */
 body {
   margin: 0;
+  user-select: none;
 }
 
 /**
@@ -65,13 +66,6 @@ pre {
 
 /* Text-level semantics
    ========================================================================== */
-/**
- * Remove the gray background on active links in IE 10.
- */
-a {
-  background-color: transparent;
-}
-
 /**
  * 1. Remove the bottom border in Chrome 57-
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -344,13 +338,21 @@ ul {
 div {
   padding: 0;
   box-sizing: border-box;
-  font-size: 0;
 }
 
 body {
   display: flex;
   justify-content: center;
-  background-color: #e7ce98;
+  background-color: rgb(231, 206, 152);
+  background-image: repeating-linear-gradient(
+    -26deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 2px,
+    transparent 3px,
+    transparent 7px
+  );
+  background-size: 6px 8px;
+  background-size: 4px 4px;
 }
 body #painting {
   width: 600px;
@@ -401,9 +403,16 @@ body #painting {
 }
 
 .painting-info {
-  background-color: #daa0aa;
+  background-color: #e7ce98;
+  background-image: repeating-linear-gradient(
+    36deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 1px,
+    transparent 0px,
+    transparent 2px
+  );
+  background-size: 12px;
   font-family: "Kode Mono", monospace;
-  width: 400px;
   position: absolute;
   font-size: 14px;
   display: flex;
@@ -416,22 +425,63 @@ body #painting {
   transition: all 1s;
   z-index: 0;
 }
-.painting-info .title {
-  font-size: 20px;
+.painting-info .info-heading {
+  font-size: 16px;
   font-weight: 700;
 }
-.painting-info img {
-  width: 50%;
-  align-self: flex-end;
+.painting-info .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.painting-info-3 span:last-of-type {
+  margin-top: 20px;
+  color: #6262c4;
+}
+
+.icons-container {
+  display: flex;
+  gap: 15px;
+}
+.icons-container a {
+  font-size: 20px;
+  color: #6262c4;
+  transition: all 1s;
+  margin-top: 5px;
+}
+.icons-container a:hover {
+  color: #9e3232;
+  transition: all 1s;
 }
 
 .painting-info-1 {
   top: 100px;
   left: 35%;
+  font-size: 12px;
+  width: 320px;
+}
+.painting-info-1 a {
+  width: 50%;
+  align-self: flex-end;
+}
+.painting-info-1 a img {
+  width: 100%;
 }
 
 .painting-info-2 {
+  width: 250px;
   top: 150px;
+}
+
+.painting-info-3 {
+  width: 250px;
+  top: 100px;
+}
+
+.painting-info:hover {
+  opacity: 1;
+  z-index: 100;
 }
 
 .overlay {
@@ -449,7 +499,11 @@ body #painting {
 }
 
 .hue-filter-2 {
-  backdrop-filter: invert(0.8);
+  backdrop-filter: hue-rotate(100deg);
+}
+
+.hue-filter-3 {
+  backdrop-filter: hue-rotate(300deg);
 }
 
 .blur-filter {
@@ -525,7 +579,7 @@ body #painting {
     top: -30%;
   }
   to {
-    top: 22%;
+    top: 14%;
   }
 }
 #painting {
@@ -533,22 +587,39 @@ body #painting {
   transform-origin: top;
 }
 
-#wall-3:hover {
+#wall-3:hover,
+.painting-info:hover ~ #wall-3,
+#mini-wall-1:hover,
+.painting-info-3:hover ~ #mini-wall-1 {
   z-index: 55;
 }
 #wall-3:hover .top,
 #wall-3:hover .left,
-#wall-3:hover .right {
+#wall-3:hover .right,
+.painting-info:hover ~ #wall-3 .top,
+.painting-info:hover ~ #wall-3 .left,
+.painting-info:hover ~ #wall-3 .right,
+#mini-wall-1:hover .top,
+#mini-wall-1:hover .left,
+#mini-wall-1:hover .right,
+.painting-info-3:hover ~ #mini-wall-1 .top,
+.painting-info-3:hover ~ #mini-wall-1 .left,
+.painting-info-3:hover ~ #mini-wall-1 .right {
   background-color: transparent !important;
   border: 1px solid #0e0e75;
-  border-radius: 1px;
 }
-#wall-3:hover .left {
-  border-left: 2px solid black;
-  border-bottom: 2px solid black;
+#wall-3:hover .left,
+.painting-info:hover ~ #wall-3 .left,
+#mini-wall-1:hover .left,
+.painting-info-3:hover ~ #mini-wall-1 .left {
+  border-left: 2px solid #0e0e75;
+  border-bottom: 3px solid #0e0e75;
 }
-#wall-3:hover .top {
-  border-top: 2px solid black;
+#wall-3:hover .top,
+.painting-info:hover ~ #wall-3 .top,
+#mini-wall-1:hover .top,
+.painting-info-3:hover ~ #mini-wall-1 .top {
+  border-top: 2px solid #0e0e75;
 }
 
 #wall-3:hover + .painting-info {
@@ -557,9 +628,11 @@ body #painting {
 }
 
 #wall-3:hover ~ .overlay,
-#floor-3:hover ~ .overlay {
+#floor-3:hover ~ .overlay,
+#mini-wall-1:hover ~ .overlay,
+.painting-info:hover ~ .overlay {
   z-index: 50;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 #floor-3:hover {
@@ -570,10 +643,23 @@ body #painting {
 #floor-3:hover .right {
   background-color: transparent !important;
   border: 1px solid #0e0e75;
-  border-radius: 1px;
+}
+#floor-3:hover .left {
+  border-left: 2px solid #0e0e75;
+  border-bottom: 2px solid #0e0e75;
+}
+#floor-3:hover .right {
+  border-right: 2px solid #0e0e75;
+  border-top: 2px solid #0e0e75;
+}
+#floor-3:hover .top {
+  border-top: 2px solid #0e0e75;
+  border-left: 2px solid #0e0e75;
 }
 
-#floor-3:hover + .painting-info-2 {
+#wall-3:hover + .painting-info,
+#floor-3:hover + .painting-info,
+#mini-wall-1:hover + .painting-info {
   opacity: 1;
   transition: all 1s;
   z-index: 100;
