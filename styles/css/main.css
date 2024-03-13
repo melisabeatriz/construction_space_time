@@ -434,7 +434,7 @@ body #container {
 }
 @keyframes wall1 {
   0%,
-  50% {
+  75% {
     top: 50%;
     right: -25%;
   }
@@ -445,7 +445,7 @@ body #container {
 }
 @keyframes miniwall1 {
   0%,
-  50% {
+  25% {
     top: 80%;
     left: -20%;
   }
@@ -507,6 +507,44 @@ body #container {
   }
   to {
     letter-spacing: 1px;
+  }
+}
+@keyframes wall2 {
+  from {
+    top: 18%;
+    left: 0;
+  }
+  to {
+    top: 26%;
+    left: -16%;
+  }
+}
+@keyframes miniwall3 {
+  from {
+    top: 14%;
+    left: 6%;
+  }
+  to {
+    top: 30%;
+    left: -16%;
+  }
+}
+@keyframes miniwall9 {
+  from {
+    top: 2%;
+  }
+  to {
+    top: -40%;
+  }
+}
+@keyframes miniroof2 {
+  from {
+    top: 62%;
+    right: 0;
+  }
+  to {
+    top: 43%;
+    right: -20%;
   }
 }
 .painting-info {
@@ -722,7 +760,7 @@ body #container {
   right: 0;
   z-index: 10;
   display: flex;
-  animation: opacitydelayed 5s;
+  animation: opacitydelayed 2.5s;
 }
 #floor-1 .contain {
   display: flex;
@@ -807,7 +845,7 @@ body #container {
   z-index: 30;
   display: flex;
   flex-direction: row-reverse;
-  animation: wall1 4s ease-in;
+  animation: wall1 3s ease-in;
 }
 #wall-1 .contain {
   display: flex;
@@ -833,6 +871,22 @@ body #container {
   width: 7%;
   margin-top: 4%;
   transform: skew(0deg, 60deg);
+}
+
+#wall-1:hover ~ #wall-2 {
+  animation: wall2 2s alternate infinite;
+}
+
+#mini-wall-4:hover ~ #mini-wall-3 {
+  animation: miniwall3 2s alternate infinite;
+}
+
+#mini-wall-8:hover ~ #mini-wall-9 {
+  animation: miniwall9 2s alternate infinite;
+}
+
+#prism-2:hover ~ #mini-roof-2 {
+  animation: miniroof2 2s alternate infinite;
 }
 
 #wall-2 {
@@ -875,7 +929,8 @@ body #container {
   height: 20%;
   z-index: 40;
   position: absolute;
-  top: 28%;
+  top: 26%;
+  left: -7%;
   transform: rotateZ(47deg);
   display: flex;
 }
@@ -912,7 +967,7 @@ body #container {
   left: 2%;
   transform: skew(0deg, 47deg);
   display: flex;
-  animation: miniwall1 4s ease-in-out;
+  animation: miniwall1 2s ease-in-out;
 }
 .mini-wall-1 .contain {
   display: flex;
@@ -992,7 +1047,7 @@ body #container {
   z-index: 40;
   transform: rotateZ(47deg);
   display: flex;
-  animation: roof2 2s ease-out;
+  animation: roof2 1s ease-out;
 }
 #roof-2 .contain {
   display: flex;
@@ -1027,7 +1082,7 @@ body #container {
   left: 2%;
   transform: rotateZ(47deg);
   display: flex;
-  animation: opacity 3s ease-in;
+  animation: opacity 1.5s ease-in;
 }
 #roof-3 .contain {
   display: flex;
@@ -1133,7 +1188,7 @@ body #container {
   transform: skew(0deg, -47deg);
   display: flex;
   flex-direction: row-reverse;
-  animation: opacitydelayed 6s ease-in;
+  animation: opacitydelayed 3s ease-in;
 }
 #prism-1 .contain {
   display: flex;
@@ -1177,7 +1232,7 @@ body #container {
   left: 4%;
   display: flex;
   z-index: 30;
-  animation: floor3 5s ease-out;
+  animation: floor3 2.5s ease-out;
 }
 #floor-3 .contain {
   display: flex;
@@ -1291,7 +1346,7 @@ body #container {
   z-index: 7;
   display: flex;
   flex-direction: row-reverse;
-  animation: opacity 6s ease;
+  animation: opacity 3s ease;
 }
 #mini-wall-6 .contain {
   display: flex;
@@ -1331,7 +1386,7 @@ body #container {
   z-index: 5;
   display: flex;
   flex-direction: row-reverse;
-  animation: miniwall7 6s ease;
+  animation: miniwall7 3s ease;
 }
 #mini-wall-7 .contain {
   display: flex;
@@ -1340,10 +1395,10 @@ body #container {
 }
 #mini-wall-7 .contain .top {
   background-color: #be3737;
-  height: 21%;
+  height: 22%;
   width: 103%;
   transform: skew(30deg, 0deg);
-  margin-left: -8%;
+  margin-left: -9%;
   margin-top: -7%;
 }
 #mini-wall-7 .contain .right {
@@ -1371,7 +1426,7 @@ body #container {
   z-index: 5;
   display: flex;
   flex-direction: row-reverse;
-  animation: miniwall8 3s ease-in;
+  animation: miniwall8 1.5s ease-in;
 }
 #mini-wall-8 .contain {
   display: flex;
@@ -1553,7 +1608,7 @@ body #container {
   transform: skew(0deg, -47deg);
   display: flex;
   flex-direction: row-reverse;
-  animation: opacitydelayed 5s;
+  animation: opacitydelayed 2.5s;
 }
 #prism-2 .contain {
   display: flex;
@@ -1600,7 +1655,7 @@ body #container {
   transform: skew(0deg, 47deg);
   z-index: 1;
   display: flex;
-  animation: opacity 3s ease-in-out;
+  animation: opacity 1.5s ease-in-out;
 }
 #prism-3 .contain {
   display: flex;
@@ -1674,7 +1729,7 @@ body #container {
   z-index: 2;
   display: flex;
   flex-direction: row-reverse;
-  animation: miniwall14 5s;
+  animation: miniwall14 2.5s;
 }
 .mini-wall-14 .contain {
   display: flex;
