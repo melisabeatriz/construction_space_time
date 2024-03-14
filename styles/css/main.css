@@ -340,9 +340,6 @@ div {
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(231, 206, 152);
   background-image: repeating-linear-gradient(
     -26deg,
@@ -353,27 +350,22 @@ body {
   );
   background-size: 6px 8px;
   background-size: 4px 4px;
-  overflow: hidden;
 }
 body #painting {
-  width: 600px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
 }
 body #container {
   position: absolute;
-  top: 35px;
-  left: 50px;
-  width: 510px;
-  height: 550px;
+  top: 5%;
+  width: 765px;
+  height: 825px;
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 900px) {
   #container {
-    transform: scale(1.5);
-    margin-top: 150px;
+    width: 510px !important;
+    height: 550px !important;
   }
 }
 .rectangle-1 {
@@ -547,6 +539,42 @@ body #container {
     right: -20%;
   }
 }
+@keyframes wall3 {
+  from {
+    top: 15%;
+    left: 41%;
+  }
+  to {
+    top: 42%;
+    left: 73%;
+  }
+}
+#wall-1:hover ~ #wall-2 {
+  animation: wall2 2s alternate infinite;
+}
+
+#mini-wall-4:hover ~ #mini-wall-3 {
+  animation: miniwall3 2s alternate infinite;
+}
+
+#mini-wall-8:hover ~ #mini-wall-9 {
+  animation: miniwall9 2s alternate infinite;
+}
+
+#prism-2:hover ~ #mini-roof-2 {
+  animation: miniroof2 2s alternate infinite;
+}
+
+#mini-wall-2:hover ~ #wall-3 {
+  animation: wall3 2s alternate infinite;
+}
+
+#mini-wall-6:hover,
+#prism-3:hover,
+#roof-3:hover {
+  animation: opacity 1s alternate infinite;
+}
+
 .painting-info {
   background-color: #e7ce98;
   background-image: repeating-linear-gradient(
@@ -566,7 +594,6 @@ body #container {
   box-shadow: 0px 0px 60px 20px rgb(128, 41, 41);
   border-radius: 5px 30px;
   opacity: 0;
-  transform: scale(0.8);
   transition: all 1s;
   z-index: 0;
 }
@@ -640,11 +667,8 @@ body #container {
   opacity: 0;
   transition: all 0.5s;
   position: fixed;
-  top: -300px;
-  left: -400px;
   height: 100vh;
   width: 100vw;
-  transform: scale(1.5);
 }
 
 .hue-filter-1 {
@@ -659,77 +683,79 @@ body #container {
   backdrop-filter: hue-rotate(300deg);
 }
 
+.invert-filter {
+  backdrop-filter: invert(1);
+}
+
+.grayscale-filter {
+  backdrop-filter: grayscale(1);
+}
+
 .blur-filter {
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(4px);
 }
 
 #wall-3:hover,
-.painting-info:hover ~ #wall-3,
-.mini-wall-1:hover {
-  z-index: 55;
+#mini-wall-1:hover,
+.wall-hover {
+  z-index: 60 !important;
 }
 #wall-3:hover .top,
 #wall-3:hover .left,
 #wall-3:hover .right,
-.painting-info:hover ~ #wall-3 .top,
-.painting-info:hover ~ #wall-3 .left,
-.painting-info:hover ~ #wall-3 .right,
-.mini-wall-1:hover .top,
-.mini-wall-1:hover .left,
-.mini-wall-1:hover .right {
+#mini-wall-1:hover .top,
+#mini-wall-1:hover .left,
+#mini-wall-1:hover .right,
+.wall-hover .top,
+.wall-hover .left,
+.wall-hover .right {
   background-color: transparent !important;
-  border: 1px solid #0e0e75;
+  border: 1px solid #ff33fc;
 }
 #wall-3:hover .left,
-.painting-info:hover ~ #wall-3 .left,
-.mini-wall-1:hover .left {
-  border-left: 2px solid #0e0e75;
-  border-bottom: 3px solid #0e0e75;
+#mini-wall-1:hover .left,
+.wall-hover .left {
+  border-left: 2px solid #ff33fc;
+  border-bottom: 3px solid #ff33fc;
 }
 #wall-3:hover .top,
-.painting-info:hover ~ #wall-3 .top,
-.mini-wall-1:hover .top {
-  border-top: 2px solid #0e0e75;
+#mini-wall-1:hover .top,
+.wall-hover .top {
+  border-top: 2px solid #ff33fc;
 }
 
-#wall-3:hover + .painting-info {
-  opacity: 1;
-  z-index: 100;
-}
-
-#wall-3:hover ~ .overlay,
-#floor-3:hover ~ .overlay,
-.mini-wall-1:hover ~ .overlay,
-.painting-info:hover ~ .overlay {
-  z-index: 50;
-  opacity: 0.9;
-}
-
-#floor-3:hover {
-  z-index: 60;
+#floor-3:hover,
+.floor-3-hover {
+  z-index: 60 !important;
 }
 #floor-3:hover .top,
 #floor-3:hover .left,
-#floor-3:hover .right {
+#floor-3:hover .right,
+.floor-3-hover .top,
+.floor-3-hover .left,
+.floor-3-hover .right {
   background-color: transparent !important;
-  border: 1px solid #0e0e75;
+  border: 1px solid #ff33fc;
 }
-#floor-3:hover .left {
-  border-left: 2px solid #0e0e75;
-  border-bottom: 2px solid #0e0e75;
+#floor-3:hover .left,
+.floor-3-hover .left {
+  border-left: 2px solid #ff33fc;
+  border-bottom: 2px solid #ff33fc;
 }
-#floor-3:hover .right {
-  border-right: 2px solid #0e0e75;
-  border-top: 2px solid #0e0e75;
+#floor-3:hover .right,
+.floor-3-hover .right {
+  border-right: 2px solid #ff33fc;
+  border-top: 2px solid #ff33fc;
 }
-#floor-3:hover .top {
-  border-top: 2px solid #0e0e75;
-  border-left: 2px solid #0e0e75;
+#floor-3:hover .top,
+.floor-3-hover .top {
+  border-top: 2px solid #ff33fc;
+  border-left: 2px solid #ff33fc;
 }
 
 #wall-3:hover + .painting-info,
 #floor-3:hover + .painting-info,
-.mini-wall-1:hover + .painting-info {
+#mini-wall-1:hover + .painting-info {
   opacity: 1;
   transition: all 1s;
   z-index: 100;
@@ -855,7 +881,7 @@ body #container {
 #wall-1 .contain .top {
   background-color: #f1f1f1;
   height: 8%;
-  width: 100.5%;
+  width: 99.5%;
   transform: skew(30deg, 0deg);
   margin-left: -4%;
   margin-top: -2%;
@@ -871,22 +897,6 @@ body #container {
   width: 7%;
   margin-top: 4%;
   transform: skew(0deg, 60deg);
-}
-
-#wall-1:hover ~ #wall-2 {
-  animation: wall2 2s alternate infinite;
-}
-
-#mini-wall-4:hover ~ #mini-wall-3 {
-  animation: miniwall3 2s alternate infinite;
-}
-
-#mini-wall-8:hover ~ #mini-wall-9 {
-  animation: miniwall9 2s alternate infinite;
-}
-
-#prism-2:hover ~ #mini-roof-2 {
-  animation: miniroof2 2s alternate infinite;
 }
 
 #wall-2 {
@@ -954,11 +964,12 @@ body #container {
 #roof-1 .right {
   background-color: #e6e6e6;
   width: 6%;
-  height: 87%;
+  height: 88%;
+  margin-top: 1%;
   transform: skew(0deg, 43deg) translate(0px, 3px);
 }
 
-.mini-wall-1 {
+#mini-wall-1 {
   width: 38%;
   height: 18%;
   z-index: 40;
@@ -969,27 +980,29 @@ body #container {
   display: flex;
   animation: miniwall1 2s ease-in-out;
 }
-.mini-wall-1 .contain {
+#mini-wall-1 .contain {
   display: flex;
   flex-direction: column;
   width: 89%;
 }
-.mini-wall-1 .contain .top {
+#mini-wall-1 .contain .top {
   background-color: #f1f1f1;
-  height: 40%;
+  height: 43%;
   width: 97.5%;
   transform: skew(-27deg, 0deg);
-  margin-left: 7%;
+  margin-left: 8%;
+  margin-top: -2%;
 }
-.mini-wall-1 .contain .left {
+#mini-wall-1 .contain .left {
   background-color: #d6d6d6;
   height: 60%;
-  width: 98%;
+  width: 97%;
+  margin-left: 1%;
 }
-.mini-wall-1 .right {
+#mini-wall-1 .right {
   background-color: #e6e6e6;
   width: 12.5%;
-  height: 62%;
+  height: 61%;
   transform: skew(0deg, -63deg);
   margin-top: 11.2%;
   margin-left: -2%;
@@ -1004,6 +1017,7 @@ body #container {
 }
 
 #mini-wall-2 {
+  z-index: 1;
   transform: skew(0deg, 47deg);
   width: 13%;
   height: 44%;
@@ -1061,20 +1075,21 @@ body #container {
 }
 #roof-2 .contain .left {
   background-color: #949494;
-  width: 100%;
-  height: 11%;
-  margin-left: 13%;
+  width: 102%;
+  height: 10%;
+  margin-left: 12%;
   transform: skew(47deg, 0deg);
 }
 #roof-2 .right {
   background-color: #a7a7a7;
-  width: 25%;
+  width: 22%;
   height: 89%;
   margin-top: 10%;
   transform: skew(0deg, 43deg);
 }
 
 #roof-3 {
+  z-index: 1;
   width: 44%;
   height: 28%;
   position: absolute;
@@ -1126,20 +1141,21 @@ body #container {
 }
 #wall-3 .contain .top {
   background-color: #bdbdbd;
-  height: 10%;
-  width: 100%;
+  height: 12%;
+  width: 101%;
   transform: skew(-27deg, 0deg);
   margin-left: 4%;
+  margin-top: -1%;
 }
 #wall-3 .contain .left {
   background-color: #949494;
-  height: 94%;
+  height: 100%;
   width: 100%;
 }
 #wall-3 .right {
   background-color: #a7a7a7;
   width: 7%;
-  height: 91%;
+  height: 90%;
   transform: skew(0deg, -63deg);
   margin-top: 6%;
 }
@@ -1175,11 +1191,12 @@ body #container {
   background-color: #e6e6e6;
   margin-top: 4.5%;
   width: 13%;
-  height: 57%;
+  height: 55%;
   transform: skew(0deg, 43deg);
 }
 
 #prism-1 {
+  z-index: 2;
   width: 18%;
   height: 27%;
   position: absolute;
@@ -1317,23 +1334,23 @@ body #container {
 #mini-wall-4 .contain .top {
   background-color: #f1f1f1;
   height: 23%;
-  width: 98%;
+  width: 97%;
   transform: skew(-27deg, 0deg);
-  margin-left: 5%;
-  margin-top: -3%;
+  margin-left: 6%;
+  margin-top: -2%;
 }
 #mini-wall-4 .contain .left {
   background-color: #d6d6d6;
-  height: 80%;
+  height: 81%;
   width: 97%;
 }
 #mini-wall-4 .right {
   background-color: #e6e6e6;
-  width: 11%;
+  width: 10.3%;
   height: 79%;
   transform: skew(0deg, -63deg);
-  margin-top: 9%;
-  margin-left: -2%;
+  margin-top: 8%;
+  margin-left: -3%;
 }
 
 #mini-wall-6 {
@@ -1365,13 +1382,13 @@ body #container {
 #mini-wall-6 .contain .left {
   background-color: #949494;
   height: 70%;
-  width: 100%;
+  width: 99%;
 }
 #mini-wall-6 .right {
   background-color: #a7a7a7;
   width: 8%;
   height: 71%;
-  margin-top: 1%;
+  margin-top: 2%;
   margin-left: 1%;
   transform: skew(0deg, 63deg);
 }
@@ -1395,15 +1412,15 @@ body #container {
 }
 #mini-wall-7 .contain .top {
   background-color: #be3737;
-  height: 22%;
-  width: 103%;
+  height: 20%;
+  width: 104.5%;
   transform: skew(30deg, 0deg);
-  margin-left: -9%;
-  margin-top: -7%;
+  margin-left: -7%;
+  margin-top: -8%;
 }
 #mini-wall-7 .contain .right {
   background-color: #9e3232;
-  width: 103%;
+  width: 104.5%;
   height: 90%;
   margin-bottom: -2%;
 }
@@ -1473,7 +1490,7 @@ body #container {
 #mini-wall-9 .contain .top {
   background-color: #f1f1f1;
   height: 8%;
-  width: 103.5%;
+  width: 102.5%;
   transform: skew(30deg, 0deg);
   margin-left: -10%;
   margin-top: -13%;
@@ -1600,6 +1617,7 @@ body #container {
 }
 
 #prism-2 {
+  z-index: 1;
   width: 19%;
   height: 19%;
   position: absolute;
@@ -1664,11 +1682,11 @@ body #container {
 }
 #prism-3 .contain .top {
   background-color: #464646;
-  height: 67%;
-  width: 102%;
+  height: 64%;
+  width: 101%;
   transform: skew(-26deg, 0deg);
-  margin-left: 24%;
-  margin-top: -4%;
+  margin-left: 23%;
+  margin-top: -2%;
 }
 #prism-3 .contain .right {
   background-color: #141414;

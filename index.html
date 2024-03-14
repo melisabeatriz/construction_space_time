@@ -56,7 +56,11 @@
               </div>
               <div class="right"></div>
             </div>
-            <div class="mini-wall-1">
+            <div
+              id="mini-wall-1"
+              onmouseover="showFilter3();"
+              onmouseout="hideFilter3();"
+            >
               <div class="contain">
                 <div class="top"></div>
                 <div class="left"></div>
@@ -64,7 +68,11 @@
               <div class="right"></div>
             </div>
 
-            <div class="painting-info painting-info-3">
+            <div
+              class="painting-info painting-info-3"
+              onmouseover="showFilter3(); addMiniwall1Class();"
+              onmouseout="hideFilter3(); removeMiniwall1Class();"
+            >
               <span class="info-heading"
                 >this project was made with
                 <i class="fa-regular fa-heart"></i> by
@@ -91,9 +99,6 @@
                 </a>
               </div>
             </div>
-
-            <div class="overlay hue-filter-3"></div>
-            <div class="overlay blur-filter"></div>
           </div>
           <div class="floors-container">
             <div id="floor-2">
@@ -120,7 +125,11 @@
             </div>
             <div class="right"></div>
           </div>
-          <div id="roof-2">
+          <div
+            id="roof-2"
+            onmouseover="showFilter5();"
+            onmouseout="hideFilter5();"
+          >
             <div class="contain">
               <div class="top"></div>
               <div class="left"></div>
@@ -134,14 +143,22 @@
             </div>
             <div class="right"></div>
           </div>
-          <div id="wall-3">
+          <div
+            id="wall-3"
+            onmouseover="showFilter1();"
+            onmouseout="hideFilter1();"
+          >
             <div class="contain">
               <div class="top"></div>
               <div class="left"></div>
             </div>
             <div class="right"></div>
           </div>
-          <div class="painting-info painting-info-1">
+          <div
+            class="painting-info painting-info-1"
+            onmouseover="showFilter1(); addWall3Class();"
+            onmouseout="hideFilter1(); removeWall3Class();"
+          >
             <span class="title">
               based on "construction in space-time II" by theo van doesburg
               (1924)
@@ -155,8 +172,7 @@
               <img src="./src/painting.png" />
             </a>
           </div>
-          <div class="overlay hue-filter-1"></div>
-          <div class="overlay blur-filter"></div>
+
           <div id="mini-roof-1">
             <div class="contain">
               <div class="top"></div>
@@ -164,7 +180,11 @@
             </div>
             <div class="right"></div>
           </div>
-          <div id="prism-1">
+          <div
+            id="prism-1"
+            onmouseover="showFilter4();"
+            onmouseout="hideFilter4();"
+          >
             <div class="contain">
               <div class="top"></div>
               <div class="right"></div>
@@ -173,14 +193,22 @@
           </div>
         </div>
         <div id="section-3">
-          <div id="floor-3">
+          <div
+            id="floor-3"
+            onmouseover="showFilter2();"
+            onmouseout="hideFilter2();"
+          >
             <div class="contain">
               <div class="top"></div>
               <div class="left"></div>
             </div>
             <div class="right"></div>
           </div>
-          <div class="painting-info painting-info-2">
+          <div
+            class="painting-info painting-info-2"
+            onmouseover="showFilter2(); addFloor3Class();"
+            onmouseout="hideFilter2(); removeFloor3Class();"
+          >
             <span
               ><b>theo van doesburg (1883 - 1931)</b> was a dutch artist, who
               practiced painting, writing, poetry and architecture.</span
@@ -190,9 +218,6 @@
               <b>neoplasticism</b></span
             >
           </div>
-          <div class="overlay hue-filter-2"></div>
-          <div class="overlay blur-filter"></div>
-
           <div id="mini-wall-4">
             <div class="contain">
               <div class="top"></div>
@@ -295,6 +320,13 @@
           </div>
         </div>
       </div>
+      <div class="overlay hue-filter-1" id="hue-filter-1"></div>
+      <div class="overlay hue-filter-2" id="hue-filter-2"></div>
+      <div class="overlay hue-filter-3" id="hue-filter-3"></div>
+      <div class="overlay invert-filter" id="invert-filter"></div>
+      <div class="overlay grayscale-filter" id="grayscale-filter"></div>
+      <div class="overlay blur-filter" id="blur-filter"></div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
