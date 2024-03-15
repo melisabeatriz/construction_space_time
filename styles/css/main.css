@@ -410,12 +410,12 @@ body #container {
     height: 550px !important;
   }
   #mini-wall-7 .contain .top {
-    width: 106.5% !important;
-    margin-top: -8% !important;
+    width: 104.5% !important;
+    margin-left: -9% !important;
+    margin-top: -4% !important;
   }
   #mini-wall-7 .left {
-    width: 16%;
-    margin-top: 1%;
+    height: 84% !important;
   }
   .painting-info {
     transform: scale(0.8);
@@ -442,11 +442,6 @@ body #container {
   }
   #info-icon {
     display: none;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .painting-info {
-    background-color: #e7ce98;
   }
 }
 .rectangle-1 {
@@ -906,7 +901,7 @@ body #container {
   right: 0;
   z-index: 10;
   display: flex;
-  animation: opacitydelayed 2.5s;
+  animation: opacitydelayed 2s;
 }
 #floor-1 .contain {
   display: flex;
@@ -991,7 +986,7 @@ body #container {
   z-index: 30;
   display: flex;
   flex-direction: row-reverse;
-  animation: wall1 3s ease-in;
+  animation: wall1 2s ease-in;
 }
 #wall-1 .contain {
   display: flex;
@@ -1369,7 +1364,7 @@ body #container {
   left: 4%;
   display: flex;
   z-index: 30;
-  animation: floor3 2.5s ease-out;
+  animation: floor3 1.5s ease-out;
 }
 #floor-3 .contain {
   display: flex;
@@ -1483,7 +1478,7 @@ body #container {
   z-index: 7;
   display: flex;
   flex-direction: row-reverse;
-  animation: opacity 3s ease;
+  animation: opacity 2.5s ease;
 }
 #mini-wall-6 .contain {
   display: flex;
@@ -1523,7 +1518,7 @@ body #container {
   z-index: 5;
   display: flex;
   flex-direction: row-reverse;
-  animation: miniwall7 3s ease;
+  animation: miniwall7 2s ease;
 }
 #mini-wall-7 .contain {
   display: flex;
@@ -1746,7 +1741,7 @@ body #container {
   transform: skew(0deg, -47deg);
   display: flex;
   flex-direction: row-reverse;
-  animation: opacitydelayed 2.5s;
+  animation: opacitydelayed 2s;
 }
 #prism-2 .contain {
   display: flex;
@@ -1793,7 +1788,7 @@ body #container {
   transform: skew(0deg, 47deg);
   z-index: 1;
   display: flex;
-  animation: opacity 1.5s ease-in-out;
+  animation: opacity 1s ease-in-out;
 }
 #prism-3 .contain {
   display: flex;
@@ -1867,7 +1862,7 @@ body #container {
   z-index: 2;
   display: flex;
   flex-direction: row-reverse;
-  animation: miniwall14 2.5s;
+  animation: miniwall14 1.5s;
 }
 .mini-wall-14 .contain {
   display: flex;
@@ -1970,5 +1965,3 @@ body #container {
 .dark-yellow {
   background-color: #ebc137;
 }
-
-/*# sourceMappingURL=main.css.map */
