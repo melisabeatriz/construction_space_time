@@ -444,6 +444,11 @@ body #container {
     display: none;
   }
 }
+@media (prefers-color-scheme: dark) {
+  .painting-info {
+    background-color: #e7ce98;
+  }
+}
 .rectangle-1 {
   border-bottom: 14px solid #141414;
   height: 160px;
