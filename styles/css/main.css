@@ -362,10 +362,86 @@ body #container {
   height: 825px;
 }
 
+.mobile-modal-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  display: none;
+}
+
+.mobile-modal {
+  width: 200px;
+  background-color: #ffc0cb;
+  padding: 20px;
+  font-family: "Lora", serif;
+  font-size: 14px;
+  text-align: center;
+  background-image: repeating-linear-gradient(
+    36deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.25) 1px,
+    transparent 0px,
+    transparent 2px
+  );
+  background-size: 12px;
+  box-shadow: 0px 0px 60px 20px rgb(128, 41, 41);
+  border-radius: 5px 30px;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+}
+.mobile-modal .title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.mobile-modal i {
+  align-self: end;
+}
+
 @media (max-width: 900px) {
   #container {
     width: 510px !important;
     height: 550px !important;
+  }
+  #mini-wall-7 .contain .top {
+    width: 106.5% !important;
+    margin-top: -8% !important;
+  }
+  #mini-wall-7 .left {
+    width: 16%;
+    margin-top: 1%;
+  }
+  .painting-info {
+    transform: scale(0.8);
+  }
+}
+@media (max-width: 530px) {
+  .mobile-modal-container {
+    display: flex;
+  }
+  #container {
+    scroll-snap-align: start;
+    left: 10%;
+    scroll-snap-type: y mandatory;
+  }
+  .painting-info {
+    position: fixed !important;
+    left: 0 !important;
+  }
+  .painting-info-2 {
+    top: 40% !important;
+  }
+  .painting-info-3 {
+    top: 50% !important;
+  }
+  #info-icon {
+    display: none;
   }
 }
 .rectangle-1 {
@@ -549,6 +625,42 @@ body #container {
     left: 73%;
   }
 }
+.fa-circle-question {
+  background-color: transparent;
+  border: 0;
+  z-index: 200;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: #777777;
+}
+
+.fa-circle-question:hover ~ .info {
+  display: flex;
+}
+
+.info {
+  z-index: 300;
+  flex-direction: column;
+  position: fixed;
+  border-radius: 5px;
+  top: 30px;
+  right: 30px;
+  display: none;
+  width: 200px;
+  background-color: #ffd7de;
+  padding: 20px;
+  box-shadow: 0px 0px 30px 20px rgba(128, 41, 41, 0.2);
+  font-family: "Kode Mono", monospace;
+  font-size: 14px;
+}
+.info i {
+  align-self: end;
+}
+.info span {
+  font-size: 12px;
+}
+
 #wall-1:hover ~ #wall-2 {
   animation: wall2 2s alternate infinite;
 }
@@ -645,6 +757,9 @@ body #container {
 .painting-info-1 a img {
   width: 100%;
 }
+.painting-info-1 a img:hover {
+  opacity: 0.6;
+}
 
 .painting-info-2 {
   width: 250px;
@@ -667,8 +782,8 @@ body #container {
   opacity: 0;
   transition: all 0.5s;
   position: fixed;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
 .hue-filter-1 {

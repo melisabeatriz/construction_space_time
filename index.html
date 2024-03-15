@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="styles/css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,15 +24,14 @@
   </head>
 
   <body>
+    <i class="fa-regular fa-circle-question" id="info-icon"></i>
+    <div class="info" id="info-modal">
+      <p>hover over artwork to learn more</p>
+      <span>made by melisa beatriz cerda</span>
+    </div>
     <div id="painting">
       <div id="container">
         <div id="section-1">
-          <!-- <div class="modal-overlay">
-            <div class="modal">
-              <p>X</p>
-              <p>hover over artwork to discover more</p>
-            </div>
-          </div> -->
           <div class="walls-1">
             <div class="walls-container-1">
               <div id="wall-1">
@@ -320,12 +320,24 @@
           </div>
         </div>
       </div>
-      <div class="overlay hue-filter-1" id="hue-filter-1"></div>
-      <div class="overlay hue-filter-2" id="hue-filter-2"></div>
-      <div class="overlay hue-filter-3" id="hue-filter-3"></div>
-      <div class="overlay invert-filter" id="invert-filter"></div>
-      <div class="overlay grayscale-filter" id="grayscale-filter"></div>
-      <div class="overlay blur-filter" id="blur-filter"></div>
+    </div>
+    <div class="overlay hue-filter-1" id="hue-filter-1"></div>
+    <div class="overlay hue-filter-2" id="hue-filter-2"></div>
+    <div class="overlay hue-filter-3" id="hue-filter-3"></div>
+    <div class="overlay invert-filter" id="invert-filter"></div>
+    <div class="overlay grayscale-filter" id="grayscale-filter"></div>
+    <div class="overlay blur-filter" id="blur-filter"></div>
+    <div class="mobile-modal-container blur-filter" id="mobile-modal-container">
+      <div class="mobile-modal">
+        <i class="fa-solid fa-xmark" onclick="hideModal()"></i>
+        <p class="title">thanks for visiting!</p>
+        <p>
+          for a correct visualization of this project you need a larger screen
+          like a
+          <b>laptop or monitor</b>
+        </p>
+        <p>if you don't have one nearby, go ahead and explore it anyway</p>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

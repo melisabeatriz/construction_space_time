@@ -89,3 +89,8 @@ const addWall3Class = () => {
 const removeWall3Class = () => {
   removeClassname("wall-3", "wall-hover");
 };
+
+const hideModal = () => {
+  document.getElementById("mobile-modal-container").style.display = "none";
+  document.getElementById("info-icon").style.display = "block";
+};
